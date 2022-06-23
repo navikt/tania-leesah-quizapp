@@ -58,7 +58,10 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         }
 
     private fun handleNAVQuestion(question: Question) {
-        answer(question.category, question.id(), "https://https://www.detsombetyrnoe.no")
+        if(question.question == "Hva heter applikasjonsplattformen til NAV?") {
+            answer(question.category, question.id(), "NAIS")
+        } else if (question.question == "På hvilken nettside finner man informasjon om rekruttering til NAV IT?") {
+            answer(question.category, question.id(), "https://https://www.detsombetyrnoe.no")
+        }
     }
-
 }
