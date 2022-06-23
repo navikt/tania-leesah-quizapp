@@ -1,0 +1,29 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  labels:
+    team: tania
+  name: tania-leesah-quizapp
+  namespace: leesah-quiz
+spec:
+  image: {{image}}
+  port: 8080
+  strategy:
+    type: Recreate
+  liveness:
+    initialDelay: 30
+    path: isalive
+  readiness:
+    initialDelay: isready
+  replicas:
+    max: 1
+    min: 1
+  kafka:
+    pool: nav-dev
+  prometheus:
+    enabled: true
+    path: /metrics
+  env:
+    name: QUIZ_TOPIC
+    values: "Leesah-quiz.leesah-rapid-v2"
