@@ -16,6 +16,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     override fun handle(question: Question) {
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question)
+        if (question.category == "arithmetic") handleArithmeticQuestion(question)
     }
 
 
@@ -30,5 +31,23 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     private fun handleRegisterTeam(question: Question) {
         answer(question.category, question.id(), "tania")
     }
+
+    private fun handleArithmeticQuestion(question: Question) {
+        val message = question.question
+        val splitMessage = message.split(" ")
+        if(splitMessage[1] == "+") {
+            val res = splitMessage[0].toInt() + splitMessage[2].toInt()
+            answer(question.category, question.id(), res.toString())
+        } else if (splitMessage[1] == "-") {
+            val res = splitMessage[0].toInt() - splitMessage[2].toInt()
+            answer(question.category, question.id(), res.toString())
+        } else if (splitMessage[1] == "/") {
+            val res = splitMessage[0].toInt() / splitMessage[2].toInt()
+            answer(question.category, question.id(), res.toString())
+        } else if (splitMessage[1] == "*") {
+            val res = splitMessage[0].toInt() * splitMessage[2].toInt()
+            answer(question.category, question.id(), res.toString())
+    }
+}
 
 }
