@@ -8,6 +8,8 @@ metadata:
   namespace: leesah-quiz
 spec:
   image: {{image}}
+  ingresses:
+    - https://tania.dev.intern.nav.no
   port: 8080
   strategy:
     type: Recreate
