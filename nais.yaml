@@ -27,4 +27,4 @@ spec:
     path: /metrics
   env:
     - name: QUIZ_TOPIC
-      value: "Leesah-quiz.leesah-rapid-v2"
+      value: "leesah-quiz.leesah-rapid-v2"
