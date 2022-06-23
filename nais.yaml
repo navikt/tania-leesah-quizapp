@@ -3,7 +3,7 @@ kind: Application
 metadata:
   creationTimestamp: null
   labels:
-    team: tania
+    team: leesah-quiz
   name: tania-leesah-quizapp
   namespace: leesah-quiz
 spec:
