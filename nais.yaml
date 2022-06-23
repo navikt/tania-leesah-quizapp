@@ -15,7 +15,8 @@ spec:
     initialDelay: 30
     path: isalive
   readiness:
-    initialDelay: isready
+    initialDelay: 30
+    path: isready
   replicas:
     max: 1
     min: 1
